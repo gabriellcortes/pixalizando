@@ -1,5 +1,5 @@
 
-pixel <- function(imagem) {
+pixel <- function(imagem,pixels=1200) {
   qsplit <- function(im){
     imsplit(im,"x",2) %>% map(~ imsplit(.,"y",2)) %>%
       flatten
@@ -44,7 +44,7 @@ pixel <- function(imagem) {
       im <- refine(im) };
     im
   }
-  resposta<-iter.refine(imagem,1000) %>% rebuild(borders=F) %>% plot
+  resposta<-iter.refine(imagem,pixels) %>% rebuild(borders=F) %>% plot
   return(resposta)
 
 }
